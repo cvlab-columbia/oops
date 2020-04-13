@@ -12,7 +12,7 @@ from tqdm import tqdm
 def job(path, gpuid):
     env = os.environ.copy()
     env['CUDA_VISIBLE_DEVICES'] = str(gpuid)
-    result = subprocess.run(['python', '/local/vondrick/shared/flownet2-pytorch/main.py', '--inference', '--model', 'FlowNet2', '--save_flow', '--inference_dataset', 'ImagesFromFolder', '--inference_dataset_root', path, '--resume', '/local/vondrick/shared/flownet2-pytorch/checkpoint/FlowNet2_checkpoint.pth.tar', '--save', path, '--name', 'flow'], env=env, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    result = subprocess.run(['python', "PATH/TO/FlowNet2_checkpoint.pth.tar', '--save', path, '--name', 'flow"], env=env, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     return result
 
 def worker(inq, outq, lock, wid, ngpus):
@@ -24,7 +24,7 @@ def worker(inq, outq, lock, wid, ngpus):
 
 
 if __name__ == "__main__":
-    fns = sorted(glob('/proj/vondrick/datasets/fails/scenes/*/*/*'))
+    fns = sorted(glob("PATH/TO/*"))
     inq = Queue()
     outq = Queue()
     lock = Lock()

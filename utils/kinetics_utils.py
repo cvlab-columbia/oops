@@ -4,8 +4,8 @@ import numbers
 import collections
 import sys
 if True:    
-    sys.path.append('/local/vondrick/dave/fails')
-    sys.path.append('/local/vondrick/dave/fails/cnns')
+    sys.path.append("PATH/TO/fails")
+    sys.path.append("PATH/TO/cnns")
 # from cnns import model as model3d
 from types import SimpleNamespace
 import cv2

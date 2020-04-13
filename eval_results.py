@@ -368,9 +368,9 @@ if __name__ == "__main__":
         data = json.load(f)
 
     # fns = glob(
-    #     '/local/vondrick/dave/slidingwindow/fails_kinetics_features/fails_kinetics_features_*.json')
+    #     '"PATH/TO/fails_kinetics_features_*.json')"
     #
-    # kin_cls = torch.load('/local/vondrick/dave/fails/kinetics_classes.pt')
+    # kin_cls = torch.load("PATH/TO/kinetics_classes.pt")
     #
     # kindata = {}
     # for k, v in kinetics.process().items():

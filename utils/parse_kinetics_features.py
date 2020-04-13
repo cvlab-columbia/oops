@@ -8,7 +8,7 @@ from tqdm import tqdm
 
 def process():
     fns = glob(
-        '/local/vondrick/dave/slidingwindow/fails_kinetics_features/fails_kinetics_preds_*.json')
+        "PATH/TO/fails_kinetics_preds_*.json")
 
     data = []
     for fn in fns:

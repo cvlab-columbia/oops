@@ -13,8 +13,8 @@ from tqdm import tqdm
 def job(fn, gpuid):
     env = os.environ.copy()
     env['CUDA_VISIBLE_DEVICES'] = str(gpuid)
-    result = subprocess.run(['python', '/local/vondrick/tools/alphapose/video_demo.py', '--video', fn, '--outdir', 
-        '/local/vondrick/datasets/fails/scenes_pose', '--save_video', '--sp', '--nThreads', str(1)], env=env, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    result = subprocess.run(['python', "PATH/TO/video_demo.py', '--video', fn, '--outdir",
+        "PATH/TO/scenes_pose', '--save_video', '--sp', '--nThreads", str(1)], env=env, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     return result
 
 def worker(inq, outq, lock, wid, ngpus):
@@ -26,7 +26,7 @@ def worker(inq, outq, lock, wid, ngpus):
 
 
 if __name__ == "__main__":
-    fns = glob('/local/vondrick/datasets/fails/scenes/*.mp4')
+    fns = glob("PATH/TO/*.mp4")
     inq = Queue()
     outq = Queue()
     lock = Lock()

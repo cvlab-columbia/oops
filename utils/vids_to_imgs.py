@@ -28,7 +28,7 @@ if __name__ == "__main__":
     outq = Queue()
     lock = Lock()
     nproc = 40
-    #basepath = "/local/vondrick/datasets/fails/scenes"
+    #basepath = "PATH/TO/scenes"
     basepath = "YOUR PATH HERE"
     outdir = "YOUR PATH HERE"
     data=glob(os.path.join(basepath, '**/*.mp4'), recursive=True)

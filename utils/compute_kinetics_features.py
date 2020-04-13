@@ -16,8 +16,8 @@ from types import SimpleNamespace
 from spatial_transforms import Normalize, Compose, ToTensor, Scale, RandomScaleCrop
 from torchvision.datasets.folder import default_loader
 import json
-sys.path.append('/local/vondrick/dave/fails')
-sys.path.append('/local/vondrick/dave/fails/cnns')
+sys.path.append("PATH/TO/fails")
+sys.path.append("PATH/TO/cnns")
 
 
 def get_mean(norm_value=255, dataset='activitynet'):
@@ -141,7 +141,7 @@ if __name__ == "__main__":
         torch.distributed.init_process_group(
             backend='nccl', init_method='env://')
 
-    basepath = '/local/vondrick/datasets/fails/scenes_small'
+    basepath = "PATH/TO/scenes_small"
     with open("PATH/TO/borders.json") as f:
         border_file = json.load(f)
     img_xform = Compose([RandomScaleCrop((1,), center=True), Resize((args.sample_size, args.sample_size)), ToTensor(
@@ -184,7 +184,7 @@ if __name__ == "__main__":
         model = torch.nn.DataParallel(model)
 
     checkpoint = torch.load(
-        '/local/vondrick/dave/fails/checkpoint_kinetics/model_best.pt.tar', map_location=device)
+        "PATH/TO/model_best.pt.tar", map_location=device)
     model.load_state_dict(checkpoint['state_dict'])
 
     results = []

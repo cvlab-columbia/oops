@@ -98,8 +98,8 @@ class KineticsAndFails(VisionDataset):
             assert fails_path is None or fails_video_list is None
             video_list = fails_video_list or glob(os.path.join(fails_path, '**', '*.mp4'), recursive=True)
             if not fails_only:
-                kinetics_cls = torch.load('/local/vondrick/dave/fails/kinetics_classes.pt')
-                kinetics_dist = torch.load('/local/vondrick/dave/slidingwindow/fails_kinetics_features/dist.pt')
+                kinetics_cls = torch.load("PATH/TO/kinetics_classes.pt")
+                kinetics_dist = torch.load("PATH/TO/dist.pt")
                 s = len(video_list)
                 for i, n in kinetics_dist.items():
                     n *= s
@@ -213,14 +213,10 @@ class KineticsAndFails(VisionDataset):
             self.video_clips.cumulative_sizes = clip_lengths.cumsum(0).tolist()
             if kwargs['local_rank'] <= 0:
                 print(f'removed videos from {fns_removed} out of {len(self.video_clips.video_paths)} files')
-        # if not fails_path.startswith('/local/vondrick/datasets/fails/scenes'):
+        # if not fails_path.startswith("PATH/TO/scenes"):
         for i, p in enumerate(self.video_clips.video_paths):
-            if '/local/vondrick' in p:
-                self.video_clips.video_paths[i] = p.replace('/local/vondrick/datasets/fails/scenes',
-                                                            os.path.dirname(fails_path))
-            elif '/local3/vondrick3' in p:
-                self.video_clips.video_paths[i] = p.replace('/local3/vondrick3/datasets/fails/scenes',
-                                                            os.path.dirname(fails_path))
+            self.video_clips.video_paths[i] = p.replace("PATH/TO/scenes",
+                                                        os.path.dirname(fails_path))
         self.debug_dataset = debug_dataset
         if debug_dataset:
             # self.video_clips = self.video_clips.subset([0])

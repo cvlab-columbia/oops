@@ -8,7 +8,7 @@ import plotly.figure_factory as ff
 import plotly.graph_objects as go
 import torch
 
-plotly.io.orca.config.executable = '/proj/vondrick/shared/envs/pytorch12/bin/orca'
+plotly.io.orca.config.executable = "PATH/TO/orca"
 
 '''
 Notes: 73% of videos pass the filter
@@ -41,7 +41,7 @@ class MaybeFigure:
 
 
 class FigureBuilder:
-    def __init__(self, anns, confusion=None, filetype='pdf', basepath='/proj/vondrick/dave/www/figures/oops/tmp',
+    def __init__(self, anns, confusion=None, filetype='pdf', basepath="PATH/TO/tmp",
                  ok_names=None):
         self.anns = anns
         self.filetype = filetype
@@ -160,7 +160,7 @@ class FigureBuilder:
                 }
             }
         elif name == 'vid_len':
-            vid_basepath = '/proj/vondrick/datasets/fails/scenes/'
+            vid_basepath = "PATH/TO/"
             with open(os.path.join(vid_basepath, 'validcliplens.json'), 'r') as fff:
                 validcliplens = json.load(fff)
 

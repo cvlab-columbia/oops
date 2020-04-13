@@ -10,9 +10,9 @@ from tqdm import tqdm
 with open("PATH/TO/borders.json") as f:
     fails_borders = json.load(f)
 
-path = '/local3/vondrick3/datasets/fails/scenes'
+path = 'PATH/TO/scenes'
 
-newpath = '/proj/vondrick/datasets/fails/scene_clips_split_cropped'
+newpath = "PATH/TO/scene_clips_split_cropped"
 
 vids = glob(os.path.join(path, '*', '*', '*.mp4'))
 

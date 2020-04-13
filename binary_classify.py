@@ -22,8 +22,8 @@ import ipdb
 from types import SimpleNamespace
 from utils.kinetics_utils import *
 
-sys.path.append('/local/vondrick/dave/fails')
-sys.path.append('/local/vondrick/dave/fails/cnns')
+sys.path.append("PATH/TO/fails")
+sys.path.append("PATH/TO/cnns")
 
 
 def make_uint8(im):
@@ -180,7 +180,7 @@ if __name__ == "__main__":
     parser.add_argument('-j', '--workers', default=8, type=int, metavar='N',
                         help='number of data loading workers')
     parser.add_argument('-c', '--checkpoint',
-                        default='/proj/vondrick/dave/checkpoints/sliding_weaksup/checkpoint_bincls_newborders', type=str,
+                        default="PATH/TO/checkpoint_bincls_newborders", type=str,
                         metavar='PATH',
                         help='path to save checkpoint')
     parser.add_argument('--resume_training', action='store_true')
@@ -214,16 +214,16 @@ if __name__ == "__main__":
     parser.add_argument('--clips_per_video', type=int, default=5)
     # parser.add_argument('--in_vids', type=int, default=4)
     # parser.add_argument('--in_step', type=int, default=1)
-    parser.add_argument('--save_path', default='/proj/vondrick/dave/results/sliding_weaksup/test_results_bincls_newborders')
+    parser.add_argument('--save_path', default="PATH/TO/test_results_bincls_newborders")
     parser.add_argument(
-        '--fails_path', default='/local/vondrick/datasets/fails/scenes')
+        '--fails_path', default="PATH/TO/scenes")
     parser.add_argument(
-        '--kinetics_path', default='/local/vondrick/datasets/Kinetics-600/data')
+        '--kinetics_path', default="PATH/TO/data")
     parser.add_argument('--border_path', default="PATH/TO/borders.json")
-    parser.add_argument('--pretrain_path', default='/local/vondrick/dave/fails/checkpoint_kinetics/model_best.pt.tar')
+    parser.add_argument('--pretrain_path', default="PATH/TO/model_best.pt.tar")
 
-    parser.add_argument('--dataset_path', default='/proj/vondrick/dave/datasets')
-    # '--data_root', default='/proj/vondrick/datasets/fails/scenes_flow')
+    parser.add_argument('--dataset_path', default="PATH/TO/datasets")
+    # '--data_root', default="PATH/TO/scenes_flow")
     parser.add_argument('--sample_size', type=int, default=112)
     parser.add_argument('--sample_duration', type=int, default=16)
     parser.add_argument('--n_kinetics_classes', type=int, default=600)

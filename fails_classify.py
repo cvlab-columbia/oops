@@ -12,8 +12,8 @@ import torch
 import torch.distributed as distrib
 import torch.nn as nn
 import torch.nn.functional as F
-from captum.attr import LayerAttribution
-from captum.attr._core.grad_cam import LayerGradCam
+# from captum.attr import LayerAttribution
+# from captum.attr._core.grad_cam import LayerGradCam
 from moviepy.video.io.ImageSequenceClip import ImageSequenceClip
 from torchvision.models.video import r3d_18
 from torchvision.utils import save_image, make_grid
@@ -28,8 +28,8 @@ from utils.kinetics_utils import accuracy
 # from utils.kinetics_utils import *
 
 
-# sys.path.append('/local/vondrick/dave/fails')
-# sys.path.append('/local/vondrick/dave/fails/cnns')
+# sys.path.append("PATH/TO/fails")
+# sys.path.append("PATH/TO/cnns")
 
 
 def make_uint8(im):
@@ -489,17 +489,17 @@ if __name__ == "__main__":
     # parser.add_argument('--in_step', type=int, default=1)
     parser.add_argument('--save_path')
     parser.add_argument(
-        '--fails_path', default='/local/vondrick/datasets/fails/scenes')
+        '--fails_path', default="PATH/TO/scenes")
     parser.add_argument(
-        '--fails_flow_path', default='/local/vondrick/datasets/fails/scenes_flow_small')
+        '--fails_flow_path', default="PATH/TO/scenes_flow_small")
     parser.add_argument(
-        '--kinetics_path', default='/local/vondrick/datasets/Kinetics-600/data')
+        '--kinetics_path', default="PATH/TO/data")
     parser.add_argument('--border_path', default="PATH/TO/borders.json")
-    parser.add_argument('--pretrain_path', default='/local/vondrick/dave/fails/checkpoint_kinetics/model_best.pt.tar')
+    parser.add_argument('--pretrain_path', default="PATH/TO/model_best.pt.tar")
 
-    parser.add_argument('--dataset_path', default='/proj/vondrick/dave/datasets')
+    parser.add_argument('--dataset_path', default="PATH/TO/datasets")
     parser.add_argument('--remove_fns')
-    # '--data_root', default='/proj/vondrick/datasets/fails/scenes_flow')
+    # '--data_root', default="PATH/TO/scenes_flow")
     parser.add_argument('--sample_size', type=int, default=112)
     parser.add_argument('--sample_duration', type=int, default=16)
     parser.add_argument('--n_kinetics_classes', type=int, default=600)
